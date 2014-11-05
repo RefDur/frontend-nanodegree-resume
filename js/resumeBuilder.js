@@ -81,7 +81,7 @@ var work = {
 	}
     ]
 };
- 
+
 var education = {
     "schools" : [
 	{"name" : "Sternwarte",
