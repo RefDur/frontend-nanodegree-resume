@@ -1,23 +1,135 @@
-$("#main").append(["Refiz Duro"]);
 
-var firstName ="RD";
-var age=32;
-console.log(firstName);
+var bio = {
+    "contact" : 
+	{ 
+	    "mail" : "refiz.duro@gmail.com",
+	    "tel"  : 098983998121123,
+	    "mobile" : 123456789
+	},
+    "skills" : ["analyst","scientist","programmer"],
+    "picture": "images/fry.jpg"
+}
 
-var awesomeThougths = "I am Refiz and I am AWESOME!"
-console.log(awesomeThougths);
-var funThougths = awesomeThougths.replace(["AWESOME"],["FUN"]);
-console.log(funThougths);
-$("#main").append("<br>");
-$("#main").append(funThougths);
+
+var work = {
+    "jobs" : [
+	{
+	    "position" : "Scientist",
+	    "employer"  : "AIT"
+	},
+	{
+	    "position" : "Analyst",
+	    "employer"  : "Medizinkraft"
+	}
+    ]
+}
+
+var education = {
+    "schools" : [
+	{"name" : "Sternwarte",
+	 "city" : "Bamberg"
+	},
+	{"name" : "Astro",
+	 "city" : "Oslo"
+	}
+    ],
+    "courses" : [
+	{
+	    "name" : "MA876",
+	    "year" : 2012
+	},
+	{
+	    "name" : "EDX88",
+	    "year" : 2011
+	}
+    ]
+}
+console.log(education.schools[0].city);
+
+ 
+var projects = {
+    "name" : "Freelancing",
+    "year" : 2011
+}
+ 
+var skills = {
+    "soft" : "Presenter",
+    "year" : 2011
+}
+
+
+if(jQuery.isEmptyObject(bio) === false) //when not empty giving true
+//if(bio.length > 0)
+{
+    console.log("BLA");
+    $("#header").append(HTMLskillsStart);
+    console.log(bio.contact);
+    skills = bio.skills.join(" ");
+    var formattedSkills = HTMLskills.replace("%data%",skills);
+    
+    $("#header").append(formattedSkills);
+    // for(var i=0; i < bio.skills.length; i++){
+    // 	var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
+    // 	$("#header").append(formattedSkills);
+    // 	console.log(formattedSkills[i]);
+    // }
+}
+else{
+    console.log("AAA");
+}
+
+var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
+$("#header").prepend(formattedPic);
+
+//console.log(work.jobs.employer);
+console.log(bio.contact.tel);
+
+var formattedJobs = HTMLworkStart.replace("%data%",work.jobs);
+$("#header").append(formattedJobs);
+
+for(var i in work.jobs)
+{
+    var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[i].position);
+    $("#workExperience").prepend(formattedTitle);
+    var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
+    $("#workExperience").append(formattedEmployer);
+						     
+						    
+
+}
+
+
+
+
+
+
+
+
+
+//console.log(bio.isEmptyObject);
+
+
+
+// $("#main").append(["Refiz Duro"]);
+
+// var firstName ="RD";
+// var age=32;
+// console.log(firstName);
+
+// var awesomeThougths = "I am Refiz and I am AWESOME!"
+// console.log(awesomeThougths);
+// var funThougths = awesomeThougths.replace(["AWESOME"],["FUN"]);
+// console.log(funThougths);
+// $("#main").append("<br>");
+// $("#main").append(funThougths);
 var name = "Refiz Duro";
 var role = "Scientist";
 var mail = "refiz.duro@gmail.com";
 
 var formattedName = HTMLheaderName.replace("%data%",name);
-var formattedRole = HTMLheaderRole.replace("%data%",role);
+//var formattedRole = HTMLheaderRole.replace("%data%",role);
 $("#header").prepend(formattedName);
-$("#header").append(formattedRole);
+//$("#header").append(formattedRole);
 
 // test = "audacity";
 // var skills = ["awesomeness","programming","JS"];
@@ -62,55 +174,9 @@ $("#header").append(formattedRole);
 
 // $("#main").append("<br>").append(bio.contact);
 
-var bio = {
-    "contact" : "refiz.duro@gmail.com",
-    "tel:"    : "098983998121123"
-}
 
-
-var work = {
-    
-    "jobs" : [
-	{
-	    "position" : "Scientist",
-	    "company"  : "AIT"
-	},
-	{
-	    "position" : "Analyst",
-	    "company"  : "Medizinkraft"
-	}
-    ]
-};
-
-var education = {
-    "schools" : [
-	{"name" : "Sternwarte",
-	 "city" : "Bamberg"
-	},
-	{"name" : "Astro",
-	 "city" : "Oslo"
-	}
-    ],
-    "courses" : [
-	{
-	    "name" : "MA876",
-	    "year" : 2012
-	},
-	{
-	    "name" : "EDX88",
-	    "year" : 2011
-	}
-    ]
-}
-
-$("#main").append("<br>").append(education.courses[1].name);
-console.log(education.courses[1])
-
-var projects = {
-    "name" : "Freelancing",
-    "year" : 2011
-};
-
+// $("#main").append("<br>").append(education.courses[1].name);
+// console.log(education.courses[1])
 
 // education["lastSchool"] = "Bamberg";
 // education["citySchool"] = "Sternwarte";
@@ -120,6 +186,17 @@ var projects = {
 
 
 
+// var charEscape = function(_html)
+// {
+//     var newHTML = _html;
+//     newHTML = newHTML.replace(/>/g,"\"");
+//     newHTML = newHTML.replace(/</g,"\"");
+//     return newHTML;
+// }
+// t = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
 
-
-
+// console.log(charEscape(t));
+// for (var i = 0 ; i < 9 ; i++)
+// {
+//     console.log(i);
+// }
