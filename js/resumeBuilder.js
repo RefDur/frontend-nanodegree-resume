@@ -92,10 +92,9 @@ for(var i in work.jobs)
     var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[i].position);
     $("#workExperience").prepend(formattedTitle);
     var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
-    $("#workExperience").append(formattedEmployer);
-						     
-						    
-
+    var employerTitle = formattedEmployer + formattedTitle;
+    console.log(employerTitle);
+    $("#workExperience").append(employerTitle);
 }
 
 
